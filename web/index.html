@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html ng-app="app">
+    <head>
+        <title>index Angular</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <script src="lib/angular/js/angular.js" type="text/javascript"></script>
+        <script src="lib/angular/js/angular-locale_es-es.js" type="text/javascript"></script>
+        <script src="index.js" type="text/javascript"></script>
+    </head>
+    <body ng-controller="IndexController">
+        <h1>{{mensaje}}</h1>
+        <br />
+        Mensaje: <input type="text" ng-model="mensaje" />
+        <table ng-hide="mensaje === 'pepe'" border="1">
+            <tr>
+                <td>nombre</td>
+                <td>codigo</td>
+                <td>fecha</td>
+                <td>direccion</td>
+                <td>cif</td>
+            </tr>
+            <tr ng-repeat="entidadBancaria in entidadesBancarias| orderBy:'direccion'">
+                <td><a href="get.html?idEntidadBancaria={{entidadBancaria.idEntidadBancaria}}">{{entidadBancaria.nombre}}</a></td>
+                <td>{{entidadBancaria.codigoEntidad}}</td>
+                <td>{{entidadBancaria.fechaCreacion}}</td>
+                <td>{{entidadBancaria.direccion}}</td>
+                <td>{{entidadBancaria.CIF}}</td>
+            </tr>
+        </table>
+    </body>
+</html>
