@@ -14,7 +14,7 @@ function getParameterByName(name) {
 app.controller("GetController", ['$scope', '$log', '$http', function ($scope, $log, $http) {
         var config = {
             method: "GET",
-            url: "/banco_api/get.json.jsp?idEntidadBancaria=" + getParameterByName("idEntidadBancaria")
+            url: "/banco_api/api/get?idEntidadBancaria=" + getParameterByName("idEntidadBancaria")
         };
         var response = $http(config);
 
@@ -23,5 +23,3 @@ app.controller("GetController", ['$scope', '$log', '$http', function ($scope, $l
         });
 
     }]);
-
-
