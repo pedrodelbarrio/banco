@@ -3,7 +3,7 @@ var app = angular.module("app", []);
 app.controller("IndexController", ['$scope', '$log', '$http', function ($scope, $log, $http) {
         var config = {
             method: "GET",
-            url: "/banco_api/api/findall"
+            url: "/banco_api/api/entidadbancaria"
         };
         var response = $http(config);
 
