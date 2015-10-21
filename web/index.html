@@ -19,6 +19,7 @@
                 <td>fecha</td>
                 <td>direccion</td>
                 <td>cif</td>
+                <td>accion</td>
             </tr>
             <tr ng-repeat="entidadBancaria in entidadesBancarias| orderBy:'direccion'">
                 <td><a href="get.html?idEntidadBancaria={{entidadBancaria.idEntidadBancaria}}">{{entidadBancaria.nombre}}</a></td>
@@ -26,6 +27,7 @@
                 <td>{{entidadBancaria.fechaCreacion}}</td>
                 <td>{{entidadBancaria.direccion}}</td>
                 <td>{{entidadBancaria.cif}}</td>
+                <td><button ng-click="borrar(entidadBancaria.idEntidadBancaria)">Borrar</button></td>
             </tr>
         </table>
     </body>
