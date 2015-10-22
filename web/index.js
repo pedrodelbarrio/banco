@@ -6,9 +6,14 @@ app.config(['$routeProvider', function ($routeProvider) {
             templateUrl: "findall.html",
             controller: "FindAllController"
         });
+        
+        $routeProvider.when('/entidadbancaria/view/:idEntidadBancaria', {
+            templateUrl: "get.html",
+            controller: "GetController"
+        });
 
         $routeProvider.otherwise({
-            redirectTo: '/pagina1'
+            redirectTo: '/entidadbancaria/list'
         });
 
     }]);
@@ -22,6 +27,19 @@ app.controller("FindAllController", ['$scope', '$log', '$http', function ($scope
 
         response.success(function (data, status, headers, config) {
             $scope.entidadesBancarias = data;
+        });
+
+    }]);
+
+app.controller("GetController", ['$scope', '$routeParams', '$log', '$http', function ($scope, $routeParams, $log, $http) {
+        var config = {
+            method: "GET",
+            url: "/banco_api/api/entidadbancaria/" + $routeParams.idEntidadBancaria
+        };
+        var response = $http(config);
+
+        response.success(function (data, status, headers, config) {
+            $scope.entidadBancaria = data;
         });
 
     }]);

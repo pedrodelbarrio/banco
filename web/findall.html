@@ -1,4 +1,4 @@
-<table>
+<table border="1">
     <tr>
         <td>nombre</td>
         <td>codigo</td>
@@ -7,7 +7,7 @@
         <td>cif</td>
     </tr>
     <tr ng-repeat="entidadBancaria in entidadesBancarias| orderBy:'direccion'">
-        <td>{{entidadBancaria.nombre}}</td>
+        <td><a href="#/entidadbancaria/view/{{entidadBancaria.idEntidadBancaria}}">{{entidadBancaria.nombre}}</a></td>
         <td>{{entidadBancaria.codigoEntidad}}</td>
         <td>{{entidadBancaria.fechaCreacion}}</td>
         <td>{{entidadBancaria.direccion}}</td>
