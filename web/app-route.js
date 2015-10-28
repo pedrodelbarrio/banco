@@ -1,8 +1,11 @@
 app.config(['$routeProvider', function ($routeProvider) {
-
+        
+        $routeProvider.when('/main', {
+            templateUrl: "main.html"
+        });
+        
         $routeProvider.otherwise({
-            templateUrl: "main.html",
-            controller: "MainController"
+            redirectTo: '/main'
         });
 
     }]);
