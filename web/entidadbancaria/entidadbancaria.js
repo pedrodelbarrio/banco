@@ -1,30 +1,55 @@
-app.controller("ListController", ['entidadBancariaService', '$scope', '$log', function (entidadBancariaService, $scope, $log) {
+ListController.$inject = ['entidadBancariaService', '$scope', '$log'];
 
-        var response = entidadBancariaService.findAll();
+function ListController(entidadBancariaService, $scope, $log) {
 
-        response.success(function (data, status, headers, config) {
-            $scope.entidadesBancarias = data;
-        });
+    var response = entidadBancariaService.findAll();
 
-        $scope.borrar = function (idEntidadBancaria) {
+    response.success(function (data, status, headers, config) {
+        $scope.entidadesBancarias = data;
+    });
 
-            var response = entidadBancariaService.delete(idEntidadBancaria);
+    $scope.borrar = function (idEntidadBancaria) {
 
-            response.success(function (data, status, headers, config) {
-                $scope.entidadBancaria = data;
-            });
-        };
-
-    }]);
-
-app.controller("DetailController", ['entidadBancariaService', '$scope', '$routeParams', '$log', function (entidadBancariaService, $scope, $routeParams, $log) {
-
-        var response = entidadBancariaService.get($routeParams.idEntidadBancaria);
+        var response = entidadBancariaService.delete(idEntidadBancaria);
 
         response.success(function (data, status, headers, config) {
             $scope.entidadBancaria = data;
         });
+    };
 
-    }]);
+}
+
+app.controller("ListController", ListController);
+
+
+
+DetailController.$inject = ['entidadBancariaService', '$scope', '$routeParams', '$log'];
+
+function DetailController(entidadBancariaService, $scope, $routeParams, $log) {
+
+    var response = entidadBancariaService.get($routeParams.idEntidadBancaria);
+
+    response.success(function (data, status, headers, config) {
+        $scope.entidadBancaria = data;
+    });
+
+}
+
+app.controller("DetailController", DetailController);
+
+
+
+NewController.$inject = ['entidadBancariaService', '$scope', '$log'];
+
+function NewController(entidadBancariaService, $scope, $log) {
+
+    var response = entidadBancariaService.getDefault();
+
+    response.success(function (data, status, headers, config) {
+        $scope.entidadBancaria = data;
+    });
+}
+
+app.controller("NewController", NewController);
 
 

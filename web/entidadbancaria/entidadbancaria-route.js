@@ -9,6 +9,11 @@ app.config(['$routeProvider', function ($routeProvider) {
             templateUrl: "entidadbancaria/entidadbancaria-detail.html",
             controller: "DetailController"
         });
+        
+        $routeProvider.when('/entidadbancaria/new', {
+            templateUrl: "entidadbancaria/entidadbancaria-new.html",
+            controller: "NewController"
+        });
 
     }]);
 
