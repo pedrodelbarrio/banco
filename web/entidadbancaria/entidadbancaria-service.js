@@ -34,10 +34,11 @@ function EntidadBancariaService($http) {
         return $http(config);
     };
 
-    this.insert = function () {
+    this.insert = function (entidadBancaria) {
         var config = {
             method: "POST",
-            url: "/banco_api/api/entidadbancaria"
+            url: "/banco_api/api/entidadbancaria",
+            data: entidadBancaria
         };
         return $http(config);
     };
