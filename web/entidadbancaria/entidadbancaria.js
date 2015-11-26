@@ -48,16 +48,18 @@ function NewController(entidadBancariaService, $scope, $log) {
     response.success(function (data, status, headers, config) {
         $scope.entidadBancaria = data;
     });
-    
+
     $scope.insertar = function () {
 
         var response = entidadBancariaService.insert($scope.entidadBancaria);
 
         response.success(function (data, status, headers, config) {
             $scope.entidadBancaria = data;
+        }).error(function (data, status, headers, config) {
+            $scope.businessMessages = data;
         });
     };
-    
+
 }
 
 app.controller("NewController", NewController);

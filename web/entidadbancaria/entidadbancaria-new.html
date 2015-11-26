@@ -4,3 +4,7 @@ Fecha Creacion: <input type="text" name="fechaCreacion" ng-model="entidadBancari
 Direccion: <input type="text" name="direccion" ng-model="entidadBancaria.direccion" /><br/><br/>
 CIF: <input type="text" name="cif" ng-model="entidadBancaria.cif" /><br/><br/>
 <button ng-click="insertar()">Insertar</button>
+
+<ul>
+    <li ng-repeat="businessMessage in businessMessages">{{businessMessage.message}}</li>
+</ul>
